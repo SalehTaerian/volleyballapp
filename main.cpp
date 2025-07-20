@@ -1,10 +1,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+#include <QtQuickControls2/QQuickStyle>
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
+    QQuickStyle::setStyle("Material");
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/volleyball/main.qml"));
     QObject::connect(
@@ -17,6 +17,5 @@ int main(int argc, char *argv[])
         },
         Qt::QueuedConnection);
     engine.load(url);
-
     return app.exec();
 }
