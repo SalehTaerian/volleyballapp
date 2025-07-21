@@ -1,6 +1,7 @@
 QT += quick
 QT += quickcontrols2
 SOURCES += \
+        handleuser.cpp \
         main.cpp \
         user.cpp
 
@@ -21,4 +22,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    handleuser.h \
     user.h
