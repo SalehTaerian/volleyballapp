@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle("Material");
     QQmlApplicationEngine engine;
     user userobj;
-    const QUrl url(QStringLiteral("qrc:/volleyball/main.qml"));
+    // const QUrl url(QStringLiteral("qrc:/volleyball/main.qml"));
     engine.rootContext()->setContextProperty("userfunc" , &userobj);
     engine.load(QUrl(u"qrc:/volleyball/main.qml"_qs));
     // engine.load(url);
