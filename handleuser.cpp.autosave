@@ -1,16 +1,16 @@
 #include "handleuser.h"
 
 handleuser::handleuser() {}
-void handleuser::addUser(user userobj)
+void handleuser::addUser(QString firstname , QString lastname , QString phonenumber , QString date)
 {
-    users.push_back(userobj);
+    user userobj(firstname , lastname , phonenumber , date);
+    users.a
 }
 void handleuser::deleteUser(user userobj)
 {
     users.removeOne(userobj);
-    //== ope
 }
-void handleuser::editUser(user userobj)
-{
+// void handleuser::editUser(user userobj)
+// {
     
-}
+// }
