@@ -216,6 +216,12 @@ Window{
                         }
                     }
                 }
+                ComboBox
+                {
+                    model: ["8 sessions" ,"12 sessions"]
+                    width: datefield.width
+
+                }
                 Text {
                     id: dateerror
                     color:"red"

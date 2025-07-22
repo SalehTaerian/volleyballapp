@@ -1,0 +1,16 @@
+#include "handleuser.h"
+
+handleuser::handleuser() {}
+void handleuser::addUser(user userobj)
+{
+    users.push_back(userobj);
+}
+void handleuser::deleteUser(user userobj)
+{
+    users.removeOne(userobj);
+    //== ope
+}
+void handleuser::editUser(user userobj)
+{
+    
+}
