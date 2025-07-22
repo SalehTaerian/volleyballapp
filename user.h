@@ -3,25 +3,29 @@
 #include<QString>
 #include <QObject>
 
-class user : public QObject
+class user
 {
-    Q_OBJECT
 private:
     QString firstname;
     QString lastname;
     QString phonenumber;
     QString date;
+    int sessions;
 public:
     user();
-    explicit user(QString firstname , QString lastname , QString phonenumber ,QString date ,QObject *parent = nullptr);
-    Q_INVOKABLE void setfirstname(QString firstname);
-    Q_INVOKABLE void setlastname(QString lastname);
-    Q_INVOKABLE void setphonenumber(QString phonenumber);
-    Q_INVOKABLE void setnewdate(QString date);
-    Q_INVOKABLE QString getfirstname();
-    Q_INVOKABLE QString getlastname();
-    Q_INVOKABLE QString getphonenumber();
-    Q_INVOKABLE QString getnewdate();
+    user(QString firstname , QString lastname , QString phonenumber ,QString date ,int sessions);
+    user(const user& usertemp);
+    void setfirstname(QString firstname);
+    void setlastname(QString lastname);
+    void setphonenumber(QString phonenumber);
+    void setnewdate(QString date);
+    void setsessions(int sessions);
+    int getsessions()const;
+    QString getfirstname()const;
+    QString getlastname()const;
+    QString getphonenumber()const;
+    QString getnewdate()const;
+    bool operator==(const user& usertemp)const;
 };
 
 #endif // USER_H

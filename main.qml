@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 6.5
 import "."
 import QtQuick.Window
+import MyApp.HandleUser
 Window{
     id: win
     width:screen.width
@@ -218,6 +219,7 @@ Window{
                 }
                 ComboBox
                 {
+                    id:sessions
                     model: ["8 sessions" ,"12 sessions"]
                     width: datefield.width
 
@@ -263,10 +265,7 @@ Window{
                         {
                             if(firstname.validfirstname && lastname.validlastname && datefield.validdate && phonefield.validphonenum)
                             {
-                            userfunc.setfirstname(firstname.text)
-                            userfunc.setlastname(lastname.text)
-                            userfunc.setnewdate(datefield.text)
-                            userfunc.setphonenumber(phonefield.text)
+                            HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , datefield.text ,sessions.currentIndex)
                             console.log(userfunc.getfirstname())
                             message.open()
                             }

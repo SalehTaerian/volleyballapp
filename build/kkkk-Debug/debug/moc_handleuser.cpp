@@ -37,7 +37,17 @@ struct qt_meta_tag_ZN10handleuserE_t {};
 
 #ifdef QT_MOC_HAS_STRINGDATA
 static constexpr auto qt_meta_stringdata_ZN10handleuserE = QtMocHelpers::stringData(
-    "handleuser"
+    "handleuser",
+    "addUser",
+    "",
+    "firstname",
+    "lastname",
+    "phonenumber",
+    "date",
+    "sessions",
+    "deleteUser",
+    "user&",
+    "userobj"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -49,12 +59,20 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10handleuserE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
+
+ // methods: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    5,   26,    2, 0x02,    1 /* Public */,
+       8,    1,   37,    2, 0x02,    7 /* Public */,
+
+ // methods: parameters
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::Int,    3,    4,    5,    6,    7,
+    QMetaType::Void, 0x80000000 | 9,   10,
 
        0        // eod
 };
@@ -67,7 +85,17 @@ Q_CONSTINIT const QMetaObject handleuser::staticMetaObject = { {
     nullptr,
     qt_incomplete_metaTypeArray<qt_meta_tag_ZN10handleuserE_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<handleuser, std::true_type>
+        QtPrivate::TypeAndForceComplete<handleuser, std::true_type>,
+        // method 'addUser'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'deleteUser'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<user &, std::false_type>
     >,
     nullptr
 } };
@@ -75,10 +103,13 @@ Q_CONSTINIT const QMetaObject handleuser::staticMetaObject = { {
 void handleuser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     auto *_t = static_cast<handleuser *>(_o);
-    (void)_t;
-    (void)_c;
-    (void)_id;
-    (void)_a;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->addUser((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[5]))); break;
+        case 1: _t->deleteUser((*reinterpret_cast< std::add_pointer_t<user&>>(_a[1]))); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObject *handleuser::metaObject() const
@@ -97,6 +128,18 @@ void *handleuser::qt_metacast(const char *_clname)
 int handleuser::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
     return _id;
 }
 QT_WARNING_POP

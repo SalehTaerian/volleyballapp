@@ -12,9 +12,8 @@ private:
     QVector<user> users;
 public:
     handleuser();
-    void addUser();
-    void deleteUser();
-    void editUser();
-
+    Q_INVOKABLE void addUser(QString firstname , QString lastname  , QString phonenumber  , QString date ,int sessions);
+    Q_INVOKABLE void deleteUser(user& userobj);
+    // Q_INVOKABLE void editUser();
 };
 #endif // HANDLEUSER_H
