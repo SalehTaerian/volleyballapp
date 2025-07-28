@@ -7,7 +7,7 @@ import MyApp.HandleUser
 Window{
     id: win
     width:screen.width
-    height:height.width
+    height:screen.height
     minimumWidth: 320
     minimumHeight: 568
     title:"main page"
@@ -147,7 +147,7 @@ Window{
                     property int validphonenum: 0
                     onTextChanged:
                     {
-                        if(phonefield.length!==11 || phonefield.text[0]!==0 || phonefield.text[1]!==9)
+                        if(phonefield.text.length!==11 || phonefield.text[0]!=='0' || phonefield.text[1]!=='9')
                         {
                             phoneerror.visible = true
                             phoneerror.text = "invalid phone number format"
@@ -217,19 +217,19 @@ Window{
                         }
                     }
                 }
-                ComboBox
-                {
-                    id:sessions
-                    model: ["8 sessions" ,"12 sessions"]
-                    width: datefield.width
-
-                }
                 Text {
                     id: dateerror
                     color:"red"
                     visible: false
                     font.pixelSize: 12
                     anchors.margins: 2
+                }
+                ComboBox
+                {
+                    id:sessions
+                    model: ["8 sessions" ,"12 sessions"]
+                    width: datefield.width
+
                 }
                 Row{
                     spacing:7
@@ -266,7 +266,8 @@ Window{
                             if(firstname.validfirstname && lastname.validlastname && datefield.validdate && phonefield.validphonenum)
                             {
                             HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , datefield.text ,sessions.currentIndex)
-                            console.log(userfunc.getfirstname())
+                            HandleUser.inserttodb()
+                            HandleUser.showusers()
                             message.open()
                             }
                         }
