@@ -12,7 +12,7 @@ handleuser::handleuser() {
         if (!pathtemp.exists(path)) {
             qDebug() << "moshkel masir!" << path;
         }
-
+        qDebug()<<path;
         db.setDatabaseName(dbPath);
         if (!db.open()) {
             qDebug() << "db didn't open!" << db.lastError().text();
