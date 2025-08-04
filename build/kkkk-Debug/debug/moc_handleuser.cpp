@@ -76,16 +76,16 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10handleuserE[] = {
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
        1,    5,   56,    2, 0x02,    1 /* Public */,
        8,    1,   67,    2, 0x02,    7 /* Public */,
-      11,    0,   70,    2, 0x02,    9 /* Public */,
-      12,    0,   71,    2, 0x02,   10 /* Public */,
-      13,    2,   72,    2, 0x02,   11 /* Public */,
-      16,    0,   77,    2, 0x02,   14 /* Public */,
-      17,    0,   78,    2, 0x02,   15 /* Public */,
+      11,    5,   70,    2, 0x02,    9 /* Public */,
+      12,    0,   81,    2, 0x02,   15 /* Public */,
+      13,    2,   82,    2, 0x02,   16 /* Public */,
+      16,    0,   87,    2, 0x02,   19 /* Public */,
+      17,    0,   88,    2, 0x02,   20 /* Public */,
 
  // methods: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::Int,    3,    4,    5,    6,    7,
     QMetaType::Void, 0x80000000 | 9,   10,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::Int,    3,    4,    5,    6,    7,
     QMetaType::Void,
     QMetaType::QString, QMetaType::Int, QMetaType::Int,   14,   15,
     QMetaType::Void,
@@ -115,6 +115,11 @@ Q_CONSTINIT const QMetaObject handleuser::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<user &, std::false_type>,
         // method 'inserttodb'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'showusers'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'getUser'
@@ -136,7 +141,7 @@ void handleuser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->addUser((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[5]))); break;
         case 1: _t->deleteUser((*reinterpret_cast< std::add_pointer_t<user&>>(_a[1]))); break;
-        case 2: _t->inserttodb(); break;
+        case 2: _t->inserttodb((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[5]))); break;
         case 3: _t->showusers(); break;
         case 4: { QString _r = _t->getUser((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;

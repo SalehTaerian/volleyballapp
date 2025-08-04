@@ -270,7 +270,7 @@ Window{
                             if(firstname.validfirstname && lastname.validlastname && datefield.validdate && phonefield.validphonenum)
                             {
                             HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , datefield.text ,sessions.currentIndex+1)
-                            HandleUser.inserttodb()
+                            HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text , datefield.text ,sessions.currentIndex+1)
                             HandleUser.showusers()
                             message.open()
                             }

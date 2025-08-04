@@ -62,18 +62,13 @@ void handleuser::deleteUser(user& userobj)
 //         qDebug()<<"db didn't open!";
 //     }
 // }
-void handleuser::inserttodb()
+void handleuser::inserttodb(QString firstname , QString lastname , QString phonenumber , QString date , int sessions)
 {
     QSqlDatabase db = QSqlDatabase::database("main_connection");
     if (!db.isOpen()) {
         qDebug() << "DB did not open!";
         return;
     }
-    QString firstname =users.last().getfirstname();
-    QString lastname =users.last().getlastname();
-    QString phonenumber =users.last().getphonenumber();
-    QString date =users.last().getnewdate();
-    int sessions =users.last().getsessions();
     QSqlQuery query(db);
     query.prepare("INSERT INTO userdatabase(firstname, lastname , phonenumber , date , sessions) VALUES(:firstname, :lastname , :phonenumber , :date , :sessions)");
     query.bindValue(":firstname", firstname);
@@ -120,6 +115,7 @@ void handleuser::readFromDatabase()
         int sessions = query.value(4).toInt();
         users.push_back(user(firstname , lastname , phonenumber , date , sessions));
     }
+    query.clear();
 }
 QString handleuser::getUser(int index  , int item)
 {

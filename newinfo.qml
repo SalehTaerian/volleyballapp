@@ -38,8 +38,6 @@
                 clip:true
                 anchors.fill: parent
                 contentHeight: (HandleUser.getNumberOfUser()+1)*3 * 25
-                Column
-                {
                 GridLayout {
                        id: table
                        columns: 3
@@ -53,7 +51,18 @@
                            delegate: Rectangle {
                                Layout.fillWidth: true
                                Layout.preferredHeight: 65
-                               color: "lightblue"
+                               color:
+                               {
+                                   if(index===0 || index===1 || index===2)
+                                   {
+                                       "#F5EE9D"
+                                   }
+                                   else
+                                   {
+                                       "lightblue"
+                                   }
+                               }
+
                                border.color: "gray"
                                Label {
                                    anchors.centerIn: parent
@@ -115,7 +124,6 @@
                                 win.close();
                             }
                         }
-                }
                 }
                 ScrollBar.vertical: ScrollBar
                 {

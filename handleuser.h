@@ -20,7 +20,7 @@ public:
     Q_INVOKABLE void addUser(QString firstname , QString lastname  , QString phonenumber  , QString date ,int sessions);
     Q_INVOKABLE void deleteUser(user& userobj);
     // Q_INVOKABLE void connectToDb();
-    Q_INVOKABLE void inserttodb();
+    Q_INVOKABLE void inserttodb(QString firstname , QString lastname , QString phonenumber , QString date , int sessions);
     // Q_INVOKABLE void editUser();
     Q_INVOKABLE void showusers();
     Q_INVOKABLE QString getUser(int index  , int item);
