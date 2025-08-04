@@ -1,5 +1,6 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource prefix="/volleyball">
 <file alias="main.qml">C:/Users/Ravis/Desktop/volleyball/main.qml</file>
+<file alias="newinfo.qml">C:/Users/Ravis/Desktop/volleyball/newinfo.qml</file>
 </qresource>
 </RCC>

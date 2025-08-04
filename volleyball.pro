@@ -1,12 +1,18 @@
 QT += quick
 QT += quickcontrols2
 QT += sql
+QT += widgets
 SOURCES += \
         handleuser.cpp \
+        info.cpp \
         main.cpp \
-        user.cpp
+        user.cpp \
+        info.cpp
 
-resources.files = main.qml 
+resources.files += \
+        main.qml \
+        newinfo.qml
+FORMS+= info.ui
 resources.prefix = /$${TARGET}
 RESOURCES += resources \
     picture.qrc
@@ -24,4 +30,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     handleuser.h \
+    info.h \
     user.h
+
+# FORMS += \
+#     info.ui

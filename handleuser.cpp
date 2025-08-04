@@ -34,6 +34,10 @@ handleuser::handleuser() {
         }
     }
 }
+QVector<user> handleuser::getuser()
+{
+    return users;
+}
 void handleuser::addUser(QString firstname , QString lastname , QString phonenumber , QString date , int sessions)
 {
     user userobj(firstname , lastname , phonenumber , date , sessions);
@@ -88,7 +92,7 @@ void handleuser::inserttodb()
 }
 void handleuser::showusers()
 {
-    readFromDatabase();
+    // readFromDatabase();
     for(auto it = users.begin();it!=users.end();it++)
     {
         qDebug()<<it->getfirstname();
@@ -116,4 +120,23 @@ void handleuser::readFromDatabase()
         int sessions = query.value(4).toInt();
         users.push_back(user(firstname , lastname , phonenumber , date , sessions));
     }
+}
+QString handleuser::getUser(int index  , int item)
+{
+    if(item==0)
+    {
+        return users[index].getfirstname();
+    }
+    else if(item==1)
+    {
+        return users[index].getlastname();
+    }
+    else
+    {
+        return users[index].getnewdate();
+    }
+}
+int handleuser::getNumberOfUser()
+{
+    return users.size();
 }

@@ -4,6 +4,7 @@ import QtQuick.Layouts 6.5
 import "."
 import QtQuick.Window
 import MyApp.HandleUser
+// import MyApp.infopage
 Window{
     id: win
     width:screen.width
@@ -227,7 +228,8 @@ Window{
                 ComboBox
                 {
                     id:sessions
-                    model: ["8 sessions" ,"12 sessions"]
+                    model: ["1 session" , "2 sessions" , "3 sessions" , "4 sessions" , "5 sessions" , "6 sessions" ,"7 sessions" , "8 sessions"
+                        , "9 sessions" ,"10 sessions" ,"11 sessions" , "12 sessions"]
                     width: datefield.width
 
                 }
@@ -242,7 +244,8 @@ Window{
                         width: col.width/3
                         onClicked:
                         {
-                            var component =Qt.createComponent("restaurantsignin.qml")
+                            console.log("clickeddd")
+                            var component =Qt.createComponent("newinfo.qml")
                             if(component.status===Component.Ready)
                             {
                                 var newWin = component.createObject(null ,{
@@ -255,7 +258,8 @@ Window{
                                 newWin.show();
                                 win.close();
                             }
-                        }                    }
+                        }
+                    }
                     Button
                     {
                         id:submit
@@ -265,7 +269,7 @@ Window{
                         {
                             if(firstname.validfirstname && lastname.validlastname && datefield.validdate && phonefield.validphonenum)
                             {
-                            HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , datefield.text ,sessions.currentIndex)
+                            HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , datefield.text ,sessions.currentIndex+1)
                             HandleUser.inserttodb()
                             HandleUser.showusers()
                             message.open()
