@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/new/prefix1">
         <file>details-ball-sport.jpg</file>
+        <file>left-arrow.png</file>
     </qresource>
     <qresource prefix="/">
         <file>newinfo.qml</file>

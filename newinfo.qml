@@ -45,6 +45,7 @@
                        columnSpacing: 3
                        rowSpacing: 5
                        anchors.margins: 5
+                       anchors.topMargin: 20
                        Repeater {
                            model: (HandleUser.getNumberOfUser()+1)*3
                            anchors.margins: 5
@@ -101,29 +102,35 @@
                            }
                        }
                 }
-                Button
+                Button{
+                id:back
+                anchors.top: parent.top
+                anchors.left: parent.left
+                icon.source: "qrc:/new/prefix1/left-arrow.png"
+                width:parent.width/5
+                height:parent.height/7.5
+                background: null
+                anchors.rightMargin: 0
+                y:y-30
+                x:x + 10
+                onClicked:
                 {
-                    id:back
-                    text: "back"
-                    width: col.width/2
-                    anchors.centerIn: parent
-                    onClicked:
-                        {
-                            console.log("clickeddd")
-                            var component =Qt.createComponent("main.qml")
-                            if(component.status===Component.Ready)
-                            {
-                                var newWin = component.createObject(null ,{
-                                width =win.width,
-                                height =win.height,
-                                x:win.x,
-                                y:win.y,
-                                visibility:win.visibility
-                                                                    })
-                                newWin.show();
-                                win.close();
-                            }
-                        }
+                    console.log("clickeddd")
+                    var component =Qt.createComponent("main.qml")
+                    if(component.status===Component.Ready)
+                    {
+                        var newWin = component.createObject(null ,{
+                        width =win.width,
+                        height =win.height,
+                        x:win.x,
+                        y:win.y,
+                        visibility:win.visibility
+                                                            })
+                        newWin.show();
+                        win.close();
+                    }
+                }
+
                 }
                 ScrollBar.vertical: ScrollBar
                 {
