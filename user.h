@@ -12,9 +12,10 @@ private:
     QString phonenumber;
     QString date;
     int sessions;
+    int days;
 public:
     user();
-    user(QString firstname , QString lastname , QString phonenumber ,QString date ,int sessions);
+    user(QString firstname , QString lastname , QString phonenumber ,QString date ,int sessions , int days);
     user(const user& usertemp);
     void setfirstname(QString firstname);
     void setlastname(QString lastname);

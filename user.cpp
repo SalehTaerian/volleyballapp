@@ -1,11 +1,12 @@
 #include "user.h"
-user::user(QString firstname , QString lastname , QString phonenumber ,QString date ,int sessions)
+user::user(QString firstname , QString lastname , QString phonenumber ,QString date ,int sessions ,int days)
 {
     this->firstname = firstname;
     this->lastname = lastname;
     this->date = date;
     this->phonenumber = phonenumber;
     this->sessions = sessions;
+    this->days = days;
 }
 user::user()
 {

@@ -8,6 +8,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include"user.h"
+#include<QDate>
 using namespace std;
 class handleuser:public QObject
 {
@@ -17,14 +18,21 @@ private:
 public:
     handleuser();
     QVector<user> getuser();
-    Q_INVOKABLE void addUser(QString firstname , QString lastname  , QString phonenumber  , QString date ,int sessions);
+    Q_INVOKABLE void addUser(QString firstname , QString lastname  , QString phonenumber  , QString date ,int sessions ,int days);
     Q_INVOKABLE void deleteUser(user& userobj);
     // Q_INVOKABLE void connectToDb();
-    Q_INVOKABLE void inserttodb(QString firstname , QString lastname , QString phonenumber , QString date , int sessions);
+    Q_INVOKABLE void inserttodb(QString firstname , QString lastname , QString phonenumber , QString date , int sessions , int days);
     // Q_INVOKABLE void editUser();
     Q_INVOKABLE void showusers();
     Q_INVOKABLE QString getUser(int index  , int item);
     Q_INVOKABLE void readFromDatabase();
     Q_INVOKABLE int getNumberOfUser();
+    Q_INVOKABLE QString convertToLastDatDay1(QString firstDate , int sessions);
+    Q_INVOKABLE QString convertToLastDatDay2(QString firstDate , int sessions);
+    Q_INVOKABLE QString convertToLastDatDay3(QString firstDate , int sessions);
+    Q_INVOKABLE QDate firstSundayOrTuesday(QDate &firstStep);
+    Q_INVOKABLE QDate firstSundayOrThursday(QDate &firstStep);
+    Q_INVOKABLE QDate firstThursdayOrTuesday(QDate &firstStep);
+
 };
 #endif // HANDLEUSER_H

@@ -111,7 +111,7 @@
                 height:parent.height/7.5
                 background: null
                 anchors.rightMargin: 0
-                y:y-30
+                y:y - 30
                 x:x + 10
                 onClicked:
                 {

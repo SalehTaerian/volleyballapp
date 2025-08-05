@@ -233,6 +233,13 @@ Window{
                     width: datefield.width
 
                 }
+                ComboBox
+                {
+                    id:days
+                    model: ["یکشنبه و سه شنبه"  , "یکشنبه و پنجشبه "  , "سه شنبه و پنجشنبه"]
+                    width: datefield.width
+
+                }
                 Row{
                     spacing:7
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -269,8 +276,21 @@ Window{
                         {
                             if(firstname.validfirstname && lastname.validlastname && datefield.validdate && phonefield.validphonenum)
                             {
-                            HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , datefield.text ,sessions.currentIndex+1)
-                            HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text , datefield.text ,sessions.currentIndex+1)
+                            if(days.currentIndex+1 === 1)
+                            {
+                            HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay1(datefield.text ,sessions.currentIndex+1 ),sessions.currentIndex+1 , days.currentIndex+1)
+                            HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay1(datefield.text , sessions.currentIndex+1) ,sessions.currentIndex+1 , days.currentIndex+1)
+                            }
+                            else if(days.currentIndex+1 === 2)
+                            {
+                                HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay2(datefield.text , sessions.currentIndex+1),sessions.currentIndex+1 , days.currentIndex+1)
+                                HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay2(datefield.text , sessions.currentIndex+1) ,sessions.currentIndex+1 , days.currentIndex+1)
+                            }
+                            else
+                            {
+                                HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay3(datefield.text , sessions.currentIndex+1),sessions.currentIndex+1 , days.currentIndex+1)
+                                HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay3(datefield.text , sessions.currentIndex+1) ,sessions.currentIndex+1 , days.currentIndex+1)
+                            }
                             HandleUser.showusers()
                             message.open()
                             }
