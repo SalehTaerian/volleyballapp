@@ -144,7 +144,6 @@ Window{
                     placeholderText: "phonenumber"
                     width: insiderect.width-30
                     font.pixelSize: 14
-                    echoMode: TextInput.Password
                     property int validphonenum: 0
                     onTextChanged:
                     {

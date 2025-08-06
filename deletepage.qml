@@ -64,7 +64,6 @@ Window{
                     placeholderText: "phonenumber"
                     width: insiderect.width-30
                     font.pixelSize: 14
-                    echoMode: TextInput.Password
                     property int validphonenum: 0
                     onTextChanged:
                     {
@@ -112,7 +111,7 @@ Window{
                 Dialog
                 {
                     id:ermessage
-                    title: "adding was'nt successful ❌"
+                    title: "adding wasn't successful ❌"
                     standardButtons: Dialog.Ok
                     // background:Rectangle
                     // {
