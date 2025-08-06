@@ -298,6 +298,38 @@ Window{
                     }
 
                 }
+                Text {
+                    text: "Wanna delete user?"
+                    color: "red"
+                    font.bold: true
+                    font.pixelSize: 17
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onEntered:
+                        {
+                            cursorShape:Qt.PointingHandCursor
+                        }
+
+                        onClicked:
+                        {
+                            var component =Qt.createComponent("deletepage.qml")
+                                                    if(component.status===Component.Ready)
+                                                    {
+                                                        var newWin = component.createObject(null ,{
+                                                        width =win.width,
+                                                        height =win.height,
+                                                        x:win.x,
+                                                        y:win.y,
+                                                        visibility:win.visibility
+                                                                                            })
+                                                        newWin.show();
+                                                    win.close();
+                                                }
+                        }
+                    }
+                }
             }
             ScrollBar.vertical: ScrollBar
             {

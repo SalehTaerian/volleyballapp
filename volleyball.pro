@@ -11,7 +11,9 @@ SOURCES += \
 
 resources.files += \
         main.qml \
-        newinfo.qml
+        newinfo.qml \
+        deletepage.qml
+
 FORMS+= info.ui
 resources.prefix = /$${TARGET}
 RESOURCES += resources \

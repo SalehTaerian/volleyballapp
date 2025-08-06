@@ -19,7 +19,8 @@ public:
     handleuser();
     QVector<user> getuser();
     Q_INVOKABLE void addUser(QString firstname , QString lastname  , QString phonenumber  , QString date ,int sessions ,int days);
-    Q_INVOKABLE void deleteUser(user& userobj);
+    Q_INVOKABLE int deleteUser(QString phonenumber);
+    Q_INVOKABLE void deleteUserFromDb(QString phonenumber);
     // Q_INVOKABLE void connectToDb();
     Q_INVOKABLE void inserttodb(QString firstname , QString lastname , QString phonenumber , QString date , int sessions , int days);
     // Q_INVOKABLE void editUser();

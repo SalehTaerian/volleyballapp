@@ -118,6 +118,7 @@ compiler_rcc_clean:
 release/qrc_picture.cpp: ../../picture.qrc \
 		C:/Qt/6.8.2/mingw_64/bin/rcc.exe \
 		../../newinfo.qml \
+		../../deletepage.qml \
 		../../left-arrow.png \
 		../../details-ball-sport.jpg
 	C:\Qt\6.8.2\mingw_64\bin\rcc.exe -name picture --no-zstd ..\..\picture.qrc -o release\qrc_picture.cpp
@@ -125,6 +126,7 @@ release/qrc_picture.cpp: ../../picture.qrc \
 release/qrc_qmake_resources.cpp: release/qmake_resources.qrc \
 		C:/Qt/6.8.2/mingw_64/bin/rcc.exe \
 		../../newinfo.qml \
+		../../deletepage.qml \
 		../../main.qml
 	C:\Qt\6.8.2\mingw_64\bin\rcc.exe -name qmake_resources --no-zstd release\qmake_resources.qrc -o release\qrc_qmake_resources.cpp
 
@@ -266,6 +268,10 @@ release/moc_handleuser.cpp: ../../handleuser.h \
 		C:/Qt/6.8.2/mingw_64/include/QtSql/qsqlerror.h \
 		../../user.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QString \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QDate \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qlocale.h \
 		release/moc_predefs.h \
 		C:/Qt/6.8.2/mingw_64/bin/moc.exe
 	C:\Qt\6.8.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Ravis/Desktop/volleyball/build/kkkk-Debug/release/moc_predefs.h -IC:/Qt/6.8.2/mingw_64/mkspecs/win32-g++ -IC:/Users/Ravis/Desktop/volleyball -IC:/Qt/6.8.2/mingw_64/include -IC:/Qt/6.8.2/mingw_64/include/QtQuickControls2 -IC:/Qt/6.8.2/mingw_64/include/QtQuick -IC:/Qt/6.8.2/mingw_64/include/QtOpenGL -IC:/Qt/6.8.2/mingw_64/include/QtWidgets -IC:/Qt/6.8.2/mingw_64/include/QtGui -IC:/Qt/6.8.2/mingw_64/include/QtQmlMeta -IC:/Qt/6.8.2/mingw_64/include/QtQmlModels -IC:/Qt/6.8.2/mingw_64/include/QtQmlWorkerScript -IC:/Qt/6.8.2/mingw_64/include/QtQml -IC:/Qt/6.8.2/mingw_64/include/QtQmlIntegration -IC:/Qt/6.8.2/mingw_64/include/QtNetwork -IC:/Qt/6.8.2/mingw_64/include/QtSql -IC:/Qt/6.8.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\handleuser.h -o release\moc_handleuser.cpp
@@ -422,14 +428,15 @@ release/handleuser.o: ../../handleuser.cpp ../../handleuser.h \
 		C:/Qt/6.8.2/mingw_64/include/QtSql/qsqlerror.h \
 		../../user.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QString \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QDate \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/QDir \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qdir.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qdirlisting.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qfiledevice.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qiodevice.h \
-		C:/Qt/6.8.2/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.8.2/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.8.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qfile.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qfileinfo.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qtimezone.h \
@@ -452,7 +459,8 @@ release/handleuser.o: ../../handleuser.cpp ../../handleuser.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qthread.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qrunnable.h \
 		C:/Qt/6.8.2/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.8.2/mingw_64/include/QtCore/qpromise.h
+		C:/Qt/6.8.2/mingw_64/include/QtCore/qpromise.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QCalendar
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\handleuser.o ..\..\handleuser.cpp
 
 release/info.o: ../../info.cpp 
@@ -674,7 +682,8 @@ release/main.o: ../../main.cpp C:/Qt/6.8.2/mingw_64/include/QtGui/QGuiApplicatio
 		C:/Qt/6.8.2/mingw_64/include/QtSql/QSqlQuery \
 		C:/Qt/6.8.2/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.8.2/mingw_64/include/QtSql/QSqlError \
-		C:/Qt/6.8.2/mingw_64/include/QtSql/qsqlerror.h
+		C:/Qt/6.8.2/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.8.2/mingw_64/include/QtCore/QDate
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\..\main.cpp
 
 release/user.o: ../../user.cpp ../../user.h \

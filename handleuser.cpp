@@ -45,9 +45,41 @@ void handleuser::addUser(QString firstname , QString lastname , QString phonenum
     user userobj(firstname , lastname , phonenumber , date , sessions , days);
     users.push_back(userobj);
 }
-void handleuser::deleteUser(user& userobj)
+int handleuser::deleteUser(QString phonenumber)
 {
-    users.removeOne(userobj);
+    int flag=0;
+    for (auto it = users.begin();it!=users.end();)
+    {
+        if(it->getphonenumber()==phonenumber)
+        {
+            it = users.erase(it);
+            deleteUserFromDb(phonenumber);
+            flag=1;
+        }
+        else
+        {
+            it++;
+        }
+    }
+    return flag;
+}
+void handleuser::deleteUserFromDb(QString phoneNumber)
+{
+    QSqlDatabase db = QSqlDatabase::database("main_connection");
+    if (!db.isOpen()) {
+        qDebug() << "Database is not open!";
+        return;
+    }
+
+    QSqlQuery query(db);
+    query.prepare("DELETE FROM userdatabase WHERE phonenumber = :phonenumber");
+    query.bindValue(":phonenumber", phoneNumber);
+
+    if (!query.exec()) {
+        qDebug() << "Delete error:" << query.lastError().text();
+    } else {
+        qDebug() << "User with phone number" << phoneNumber << "deleted.";
+    }
 }
 // void handleuser::editUser(user userobj)
 // {
