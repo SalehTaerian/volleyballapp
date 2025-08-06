@@ -15,6 +15,7 @@ user::user()
     this->date = "1403/02/13";
     this->phonenumber = "09133325279";
     sessions = 1;
+    days=1;
 }
 user::user(const user& usertemp)
 {
@@ -23,6 +24,7 @@ user::user(const user& usertemp)
     phonenumber =usertemp.phonenumber;
     date = usertemp.date;
     sessions = usertemp.sessions;
+    days = usertemp.days;
 }
 void user::setfirstname(QString firstname)
 {
@@ -67,4 +69,22 @@ int user::getsessions()const
 bool user::operator==(const user& usertemp)const
 {
     return firstname==usertemp.firstname  && lastname==usertemp.lastname && date==usertemp.date && phonenumber==usertemp.phonenumber;
+}
+QString user::getdays()
+{
+    QString day1 = "یکشنبه و سه شنبه";
+    QString day2 = "یکشنبه و پنجشنبه";
+    QString day3 = "سه شنبه و پنجشنبه";
+    if(days==1)
+    {
+        return day1;
+    }
+    else if(days==2)
+    {
+        return day2;
+    }
+    if(days==3)
+    {
+        return day3;
+    }
 }

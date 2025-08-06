@@ -37,24 +37,24 @@
                 id:insiderect
                 clip:true
                 anchors.fill: parent
-                contentHeight: (HandleUser.getNumberOfUser()+1)*3 * 25
+                contentHeight: (HandleUser.getNumberOfUser()+1)*4 * 20
                 GridLayout {
                        id: table
-                       columns: 3
+                       columns: 4
                        anchors.fill: parent
                        columnSpacing: 3
                        rowSpacing: 5
                        anchors.margins: 5
-                       anchors.topMargin: 20
+                       anchors.topMargin: 30
                        Repeater {
-                           model: (HandleUser.getNumberOfUser()+1)*3
+                           model: (HandleUser.getNumberOfUser())*4+4
                            anchors.margins: 5
                            delegate: Rectangle {
                                Layout.fillWidth: true
                                Layout.preferredHeight: 65
                                color:
                                {
-                                   if(index===0 || index===1 || index===2)
+                                   if(index===0 || index===1 || index===2 || index===3)
                                    {
                                        "#F5EE9D"
                                    }
@@ -67,6 +67,8 @@
                                border.color: "gray"
                                Label {
                                    anchors.centerIn: parent
+                                   font.pixelSize: whiterect.width*0.024
+                                   font.bold: true
                                    text:
                                     {
                                        if(index===0)
@@ -81,19 +83,27 @@
                                        {
                                            return "Shahrieh time"
                                        }
+                                       else if(index===3)
+                                       {
+                                           return "days"
+                                       }
                                        else
                                        {
-                                           if(index%3===0)
+                                           if(index%4===0)
                                            {
-                                               return HandleUser.getUser((index-3)/3,0)
+                                               return HandleUser.getUser((index-4)/4,0)
                                            }
-                                           else if(index%3===1)
+                                           else if(index%4===1)
                                            {
-                                               return HandleUser.getUser((index-3)/3,1)
+                                               return HandleUser.getUser((index-4)/4,1)
                                            }
-                                           else if(index%3===2)
+                                           else if(index%4===2)
                                            {
-                                               return HandleUser.getUser((index-3)/3,2)
+                                               return HandleUser.getUser((index-4)/4,2)
+                                           }
+                                           else if(index%4===3)
+                                           {
+                                               return HandleUser.getUser((index-4)/4,3)
                                            }
                                        }
                                    }
@@ -104,15 +114,18 @@
                 }
                 Button{
                 id:back
-                anchors.top: parent.top
-                anchors.left: parent.left
+                anchors.top: win.top
+                anchors.left: win.left
                 icon.source: "qrc:/new/prefix1/left-arrow.png"
-                width:parent.width/5
-                height:parent.height/7.5
+                width:parent.width/2.5
+                height:parent.height/3.75
                 background: null
                 anchors.rightMargin: 0
-                y:y - 30
-                x:x + 10
+                // Component.onCompleted:
+                // {
+                //     back.y= back.y-100
+                //     back.x= back.x+1
+                // }
                 onClicked:
                 {
                     console.log("clickeddd")

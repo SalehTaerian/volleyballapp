@@ -27,6 +27,7 @@ public:
     QString getlastname()const;
     QString getphonenumber()const;
     QString getnewdate()const;
+    QString getdays();
     bool operator==(const user& usertemp)const;
 };
 

@@ -27,7 +27,8 @@ handleuser::handleuser() {
                 lastname    TEXT NOT NULL COLLATE NOCASE,
                 phonenumber TEXT NOT NULL COLLATE NOCASE,
                 date        TEXT NOT NULL COLLATE NOCASE,
-                sessions    INTEGER NOT NULL COLLATE NOCASE
+                sessions    INTEGER NOT NULL COLLATE NOCASE,
+                days        INTEGER NOT NULL
             )
         )");
         if (!ok) {
@@ -104,7 +105,7 @@ void handleuser::readFromDatabase()
     users.clear();
     QSqlDatabase db = QSqlDatabase::database("main_connection");
     QSqlQuery query(db);
-    if(!query.exec("SELECT firstname, lastname, phonenumber, date, sessions FROM userdatabase"))
+    if(!query.exec("SELECT firstname, lastname, phonenumber, date, sessions , days FROM userdatabase"))
     {
         qDebug()<<"could'nt excute!";
     }
@@ -130,9 +131,13 @@ QString handleuser::getUser(int index  , int item)
     {
         return users[index].getlastname();
     }
-    else
+    else if(item==2)
     {
         return users[index].getnewdate();
+    }
+    else if(item==3)
+    {
+        return users[index].getdays();
     }
 }
 int handleuser::getNumberOfUser()
