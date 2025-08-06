@@ -22,7 +22,7 @@ handleuser::handleuser() {
         QSqlQuery q(db);
         bool ok = q.exec(R"(
             CREATE TABLE IF NOT EXISTS userdatabase (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                id INTEGER PRIMARY KEY,
                 firstname   TEXT NOT NULL COLLATE NOCASE,
                 lastname    TEXT NOT NULL COLLATE NOCASE,
                 phonenumber TEXT NOT NULL COLLATE NOCASE,
