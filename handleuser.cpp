@@ -3,7 +3,33 @@
 #include<QStandardPaths>
 #include<QCoreApplication>
 #include<QCalendar>
-handleuser::handleuser() {
+handleuser::handleuser()
+{
+    holidays = {
+        "1404/01/02",
+        "1404/01/03",
+        "1404/01/04",
+        "1404/01/11",
+        "1404/01/12",
+        "1404/01/13",
+        "1404/02/04",
+        "1404/03/14",
+        "1404/03/15",
+        "1404/03/24",
+        "1404/04/14",
+        "1404/04/15",
+        "1404/05/23",
+        "1404/05/31",
+        "1404/06/02",
+        "1404/06/10",
+        "1404/06/19",
+        "1404/09/03",
+        "1404/10/13",
+        "1404/10/27",
+        "1404/11/15",
+        "1404/11/22",
+        "1404/12/20"
+    };
     if (!QSqlDatabase::contains("main_connection")) {
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", "main_connection");
         QString path = QCoreApplication::applicationDirPath();
@@ -35,6 +61,23 @@ handleuser::handleuser() {
             qDebug() << "Failed to (re)create table:" << q.lastError().text();
         }
     }
+}
+int handleuser::whichDay(QDate date)
+{
+    int roozHafteh =date.dayOfWeek();
+    return roozHafteh;
+}
+QDate handleuser::convertToQDate(QString date)
+{
+    QString sYear = date.mid(0 ,4);
+    QString sMonth = date.mid(5 ,2);
+    QString sDay = date.mid(8 ,2);
+    int year = sYear.toInt();
+    int month = sMonth.toInt();
+    int day = sDay.toInt();
+    QCalendar jalali(QCalendar::System::Jalali);
+    QDate Date = jalali.dateFromParts(year, month , day);
+    return Date;
 }
 QVector<user> handleuser::getuser()
 {
@@ -224,6 +267,23 @@ QString handleuser::convertToLastDatDay1(QString firstDate , int sessions)
     {
         lastSession = firstSession;
     }
+    int numberOfHolidays =0;
+    for (int i=0;i<holidays.size();i++)
+    {
+        QDate Holday = convertToQDate(holidays[i]);
+        if(Holday>=firstSession && Holday<=lastSession)
+        {
+            if(whichDay(Holday)==7 || whichDay(Holday)==2)
+            {
+                numberOfHolidays++;
+            }
+        }
+    }
+    for (int i=0;i<numberOfHolidays;i++)
+    {
+        lastSession = lastSession.addDays(1);
+        lastSession = firstSundayOrTuesday(lastSession);
+    }
     QCalendar shamsi(QCalendar::System::Jalali);
     QCalendar::YearMonthDay ymd = shamsi.partsFromDate(lastSession);
     year = ymd.year;
@@ -289,6 +349,23 @@ QString handleuser::convertToLastDatDay3(QString firstDate , int sessions)
     {
         lastSession = firstSession;
     }
+    int numberOfHolidays =0;
+    for (int i=0;i<holidays.size();i++)
+    {
+        QDate Holday = convertToQDate(holidays[i]);
+        if(Holday>=firstSession && Holday<=lastSession)
+        {
+            if(whichDay(Holday)==2 || whichDay(Holday)==4)
+            {
+                numberOfHolidays++;
+            }
+        }
+    }
+    for (int i=0;i<numberOfHolidays;i++)
+    {
+        lastSession = lastSession.addDays(1);
+        lastSession = firstThursdayOrTuesday(lastSession);
+    }
     QCalendar shamsi(QCalendar::System::Jalali);
     QCalendar::YearMonthDay ymd = shamsi.partsFromDate(lastSession);
     year = ymd.year;
@@ -345,6 +422,23 @@ QString handleuser::convertToLastDatDay2(QString firstDate , int sessions)
     else
     {
         lastSession = firstSession;
+    }
+    int numberOfHolidays =0;
+    for (int i=0;i<holidays.size();i++)
+    {
+        QDate Holday = convertToQDate(holidays[i]);
+        if(Holday>=firstSession && Holday<=lastSession)
+        {
+            if(whichDay(Holday)==7 || whichDay(Holday)==4)
+            {
+                numberOfHolidays++;
+            }
+        }
+    }
+    for (int i=0;i<numberOfHolidays;i++)
+    {
+        lastSession = lastSession.addDays(1);
+        lastSession = firstSundayOrThursday(lastSession);
     }
     QCalendar shamsi(QCalendar::System::Jalali);
     QCalendar::YearMonthDay ymd = shamsi.partsFromDate(lastSession);

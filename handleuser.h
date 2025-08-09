@@ -9,12 +9,14 @@
 #include <QSqlError>
 #include"user.h"
 #include<QDate>
+#include<QVector>
 using namespace std;
 class handleuser:public QObject
 {
     Q_OBJECT
 private:
     QVector<user> users;
+    QVector<QString>holidays;
 public:
     handleuser();
     QVector<user> getuser();
@@ -31,6 +33,8 @@ public:
     Q_INVOKABLE QString convertToLastDatDay1(QString firstDate , int sessions);
     Q_INVOKABLE QString convertToLastDatDay2(QString firstDate , int sessions);
     Q_INVOKABLE QString convertToLastDatDay3(QString firstDate , int sessions);
+    Q_INVOKABLE QDate convertToQDate(QString date);
+    Q_INVOKABLE int whichDay(QDate date);
     Q_INVOKABLE QDate firstSundayOrTuesday(QDate &firstStep);
     Q_INVOKABLE QDate firstSundayOrThursday(QDate &firstStep);
     Q_INVOKABLE QDate firstThursdayOrTuesday(QDate &firstStep);
