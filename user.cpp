@@ -1,10 +1,11 @@
 #include "user.h"
-user::user(QString firstname , QString lastname , QString phonenumber ,QString date ,int sessions ,int days)
+user::user(QString firstname , QString lastname , QString phonenumber ,QString firstsession ,QString date ,int sessions ,int days)
 {
     this->firstname = firstname;
     this->lastname = lastname;
     this->date = date;
     this->phonenumber = phonenumber;
+    this->firstsession = firstsession;
     this->sessions = sessions;
     this->days = days;
 }
@@ -14,6 +15,7 @@ user::user()
     this->lastname = "taerian";
     this->date = "1403/02/13";
     this->phonenumber = "09133325279";
+    firstsession = "1404/01/01";
     sessions = 1;
     days=1;
 }
@@ -22,6 +24,7 @@ user::user(const user& usertemp)
     firstname =usertemp.firstname;
     lastname = usertemp.lastname;
     phonenumber =usertemp.phonenumber;
+    firstsession  = usertemp.firstsession;
     date = usertemp.date;
     sessions = usertemp.sessions;
     days = usertemp.days;
@@ -66,15 +69,22 @@ int user::getsessions()const
 {
     return sessions;
 }
+QString user::getfirstsession()
+{
+    return firstsession;
+}
 bool user::operator==(const user& usertemp)const
 {
     return firstname==usertemp.firstname  && lastname==usertemp.lastname && date==usertemp.date && phonenumber==usertemp.phonenumber;
 }
 QString user::getdays()
 {
-    QString day1 = "یکشنبه و سه شنبه";
-    QString day2 = "یکشنبه و پنجشنبه";
-    QString day3 = "سه شنبه و پنجشنبه";
+    QString day1 = "یکشنبه و"
+                   " سه شنبه";
+    QString day2 = "یکشنبه و"
+                   " پنجشنبه";
+    QString day3 = "سه شنبه و"
+                   " پنجشنبه";
     if(days==1)
     {
         return day1;
@@ -83,7 +93,7 @@ QString user::getdays()
     {
         return day2;
     }
-    if(days==3)
+    else if(days==3)
     {
         return day3;
     }

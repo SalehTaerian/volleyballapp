@@ -17,6 +17,7 @@ resources.files += \
 FORMS+= info.ui
 resources.prefix = /$${TARGET}
 RESOURCES += resources \
+    picture.qrc \
     picture.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model

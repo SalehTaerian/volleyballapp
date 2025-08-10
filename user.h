@@ -10,12 +10,13 @@ private:
     QString firstname;
     QString lastname;
     QString phonenumber;
+    QString firstsession;
     QString date;
     int sessions;
     int days;
 public:
     user();
-    user(QString firstname , QString lastname , QString phonenumber ,QString date ,int sessions , int days);
+    user(QString firstname , QString lastname , QString phonenumber ,  QString firstsession ,QString date ,int sessions , int days);
     user(const user& usertemp);
     void setfirstname(QString firstname);
     void setlastname(QString lastname);
@@ -26,6 +27,7 @@ public:
     QString getfirstname()const;
     QString getlastname()const;
     QString getphonenumber()const;
+    QString getfirstsession();
     QString getnewdate()const;
     QString getdays();
     bool operator==(const user& usertemp)const;

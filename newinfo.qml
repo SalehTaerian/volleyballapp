@@ -37,24 +37,24 @@
                 id:insiderect
                 clip:true
                 anchors.fill: parent
-                contentHeight: (HandleUser.getNumberOfUser()+1)*4 * 20
+                contentHeight: (HandleUser.getNumberOfUser()+1)*5 * 20
                 GridLayout {
                        id: table
-                       columns: 4
+                       columns: 5
                        anchors.fill: parent
                        columnSpacing: 3
                        rowSpacing: 5
                        anchors.margins: 5
                        anchors.topMargin: 30
                        Repeater {
-                           model: (HandleUser.getNumberOfUser())*4+4
+                           model: (HandleUser.getNumberOfUser())*5+5
                            anchors.margins: 5
                            delegate: Rectangle {
                                Layout.fillWidth: true
                                Layout.preferredHeight: 65
                                color:
                                {
-                                   if(index===0 || index===1 || index===2 || index===3)
+                                   if(index===0 || index===1 || index===2 || index===3 || index===4)
                                    {
                                        "#F5EE9D"
                                    }
@@ -67,7 +67,7 @@
                                border.color: "gray"
                                Label {
                                    anchors.centerIn: parent
-                                   font.pixelSize: whiterect.width*0.024
+                                   font.pixelSize: whiterect.width*0.022
                                    font.bold: true
                                    text:
                                     {
@@ -81,29 +81,37 @@
                                        }
                                        else if(index===2)
                                        {
-                                           return "Shahrieh time"
+                                           return "registraion date"
                                        }
                                        else if(index===3)
+                                       {
+                                           return "Shahrieh time"
+                                       }
+                                       else if(index===4)
                                        {
                                            return "days"
                                        }
                                        else
                                        {
-                                           if(index%4===0)
+                                           if(index%5===0)
                                            {
-                                               return HandleUser.getUser((index-4)/4,0)
+                                               return HandleUser.getUser((index-5)/5,0)
                                            }
-                                           else if(index%4===1)
+                                           else if(index%5===1)
                                            {
-                                               return HandleUser.getUser((index-4)/4,1)
+                                               return HandleUser.getUser((index-5)/5,1)
                                            }
-                                           else if(index%4===2)
+                                           else if(index%5===2)
                                            {
-                                               return HandleUser.getUser((index-4)/4,2)
+                                               return HandleUser.getUser((index-5)/5,2)
                                            }
-                                           else if(index%4===3)
+                                           else if(index%5===3)
                                            {
-                                               return HandleUser.getUser((index-4)/4,3)
+                                               return HandleUser.getUser((index- 5)/5,3)
+                                           }
+                                           else if(index%5===4)
+                                           {
+                                               return HandleUser.getUser((index-5)/5,4)
                                            }
                                        }
                                    }

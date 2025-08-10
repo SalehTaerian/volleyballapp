@@ -277,18 +277,18 @@ Window{
                             {
                             if(days.currentIndex+1 === 1)
                             {
-                            HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay1(datefield.text ,sessions.currentIndex+1 ),sessions.currentIndex+1 , days.currentIndex+1)
-                            HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay1(datefield.text , sessions.currentIndex+1) ,sessions.currentIndex+1 , days.currentIndex+1)
+                            HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , datefield.text , HandleUser.convertToLastDatDay1(datefield.text ,sessions.currentIndex+1 ),sessions.currentIndex+1 , days.currentIndex+1)
+                            HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text ,datefield.text , HandleUser.convertToLastDatDay1(datefield.text , sessions.currentIndex+1) ,sessions.currentIndex+1 , days.currentIndex+1)
                             }
                             else if(days.currentIndex+1 === 2)
                             {
-                                HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay2(datefield.text , sessions.currentIndex+1),sessions.currentIndex+1 , days.currentIndex+1)
-                                HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay2(datefield.text , sessions.currentIndex+1) ,sessions.currentIndex+1 , days.currentIndex+1)
+                                HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text  , datefield.text, HandleUser.convertToLastDatDay2(datefield.text , sessions.currentIndex+1),sessions.currentIndex+1 , days.currentIndex+1)
+                                HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text , datefield.text , HandleUser.convertToLastDatDay2(datefield.text , sessions.currentIndex+1) ,sessions.currentIndex+1 , days.currentIndex+1)
                             }
                             else
                             {
-                                HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay3(datefield.text , sessions.currentIndex+1),sessions.currentIndex+1 , days.currentIndex+1)
-                                HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text , HandleUser.convertToLastDatDay3(datefield.text , sessions.currentIndex+1) ,sessions.currentIndex+1 , days.currentIndex+1)
+                                HandleUser.addUser(firstname.text ,lastname.text ,phonefield.text , datefield.text , HandleUser.convertToLastDatDay3(datefield.text , sessions.currentIndex+1),sessions.currentIndex+1 , days.currentIndex+1)
+                                HandleUser.inserttodb(firstname.text ,lastname.text ,phonefield.text ,datefield.text ,  HandleUser.convertToLastDatDay3(datefield.text , sessions.currentIndex+1) ,sessions.currentIndex+1 , days.currentIndex+1)
                             }
                             HandleUser.showusers()
                             message.open()

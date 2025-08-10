@@ -52,6 +52,7 @@ handleuser::handleuser()
                 firstname   TEXT NOT NULL COLLATE NOCASE,
                 lastname    TEXT NOT NULL COLLATE NOCASE,
                 phonenumber TEXT NOT NULL COLLATE NOCASE,
+                firstsession TEXT NOT NULL COLLATE NOCASE,
                 date        TEXT NOT NULL COLLATE NOCASE,
                 sessions    INTEGER NOT NULL COLLATE NOCASE,
                 days        INTEGER NOT NULL
@@ -83,9 +84,9 @@ QVector<user> handleuser::getuser()
 {
     return users;
 }
-void handleuser::addUser(QString firstname , QString lastname , QString phonenumber , QString date , int sessions ,int days)
+void handleuser::addUser(QString firstname , QString lastname , QString phonenumber ,QString firstsession , QString date , int sessions ,int days)
 {
-    user userobj(firstname , lastname , phonenumber , date , sessions , days);
+    user userobj(firstname , lastname , phonenumber , firstsession ,  date , sessions , days);
     users.push_back(userobj);
 }
 int handleuser::deleteUser(QString phonenumber)
@@ -139,7 +140,7 @@ void handleuser::deleteUserFromDb(QString phoneNumber)
 //         qDebug()<<"db didn't open!";
 //     }
 // }
-void handleuser::inserttodb(QString firstname , QString lastname , QString phonenumber , QString date , int sessions ,int days)
+void handleuser::inserttodb(QString firstname , QString lastname , QString phonenumber ,QString firstsession , QString date , int sessions ,int days)
 {
     QSqlDatabase db = QSqlDatabase::database("main_connection");
     if (!db.isOpen()) {
@@ -147,10 +148,11 @@ void handleuser::inserttodb(QString firstname , QString lastname , QString phone
         return;
     }
     QSqlQuery query(db);
-    query.prepare("INSERT INTO userdatabase(firstname, lastname , phonenumber , date , sessions , days) VALUES(:firstname, :lastname , :phonenumber , :date , :sessions , :days)");
+    query.prepare("INSERT INTO userdatabase(firstname, lastname , phonenumber , firstsession , date , sessions , days) VALUES(:firstname, :lastname , :phonenumber , :firstsession , :date , :sessions , :days)");
     query.bindValue(":firstname", firstname);
     query.bindValue(":lastname", lastname);
     query.bindValue(":phonenumber", phonenumber);
+    query.bindValue(":firstsession", firstsession);
     query.bindValue(":date", date);
     query.bindValue(":sessions", sessions);
     query.bindValue(":days", days);
@@ -180,7 +182,7 @@ void handleuser::readFromDatabase()
     users.clear();
     QSqlDatabase db = QSqlDatabase::database("main_connection");
     QSqlQuery query(db);
-    if(!query.exec("SELECT firstname, lastname, phonenumber, date, sessions , days FROM userdatabase"))
+    if(!query.exec("SELECT firstname, lastname, phonenumber, firstsession , date, sessions , days FROM userdatabase"))
     {
         qDebug()<<"could'nt excute!";
     }
@@ -189,10 +191,11 @@ void handleuser::readFromDatabase()
         QString firstname = query.value(0).toString();
         QString lastname = query.value(1).toString();
         QString phonenumber = query.value(2).toString();
-        QString date = query.value(3).toString();
-        int sessions = query.value(4).toInt();
-        int days = query.value(5).toInt();
-        users.push_back(user(firstname , lastname , phonenumber , date , sessions , days));
+        QString firstsession = query.value(3).toString();
+        QString date = query.value(4).toString();
+        int sessions = query.value(5).toInt();
+        int days = query.value(6).toInt();
+        users.push_back(user(firstname , lastname , phonenumber , firstsession ,  date , sessions , days));
     }
     query.clear();
 }
@@ -208,9 +211,13 @@ QString handleuser::getUser(int index  , int item)
     }
     else if(item==2)
     {
-        return users[index].getnewdate();
+        return users[index].getfirstsession();
     }
     else if(item==3)
+    {
+        return users[index].getnewdate();
+    }
+    else if(item==4)
     {
         return users[index].getdays();
     }
