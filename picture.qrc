@@ -3,4 +3,7 @@
         <file>details-ball-sport.jpg</file>
         <file>left-arrow.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>searchPage.qml</file>
+    </qresource>
 </RCC>

@@ -35,6 +35,7 @@ public:
     Q_INVOKABLE QString convertToLastDatDay3(QString firstDate , int sessions);
     Q_INVOKABLE QDate convertToQDate(QString date);
     Q_INVOKABLE int whichDay(QDate date);
+    Q_INVOKABLE int searchUser(QString firstname , QString lastname);
     Q_INVOKABLE QDate firstSundayOrTuesday(QDate &firstStep);
     Q_INVOKABLE QDate firstSundayOrThursday(QDate &firstStep);
     Q_INVOKABLE QDate firstThursdayOrTuesday(QDate &firstStep);

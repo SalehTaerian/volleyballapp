@@ -3,5 +3,6 @@
 <file alias="main.qml">C:/Users/Ravis/Desktop/volleyball/main.qml</file>
 <file alias="newinfo.qml">C:/Users/Ravis/Desktop/volleyball/newinfo.qml</file>
 <file alias="deletepage.qml">C:/Users/Ravis/Desktop/volleyball/deletepage.qml</file>
+<file alias="searchPage.qml">C:/Users/Ravis/Desktop/volleyball/searchPage.qml</file>
 </qresource>
 </RCC>

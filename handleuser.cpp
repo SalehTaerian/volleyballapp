@@ -498,3 +498,14 @@ QDate handleuser::firstThursdayOrTuesday(QDate &firstStep)
         start = start.addDays(1);
     }
 }
+int handleuser::searchUser(QString firstname , QString lastname)
+{
+    for (int i= 0;i< users.size();i++)
+    {
+        if(users[i].getfirstname()==firstname && users[i].getlastname()==lastname)
+        {
+             return i;
+        }
+    }
+    return -1;
+}

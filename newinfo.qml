@@ -151,7 +151,6 @@
                         win.close();
                     }
                 }
-
                 }
                 ScrollBar.vertical: ScrollBar
                 {

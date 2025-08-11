@@ -63,6 +63,7 @@ static constexpr auto qt_meta_stringdata_ZN10handleuserE = QtMocHelpers::stringD
     "convertToLastDatDay3",
     "convertToQDate",
     "whichDay",
+    "searchUser",
     "firstSundayOrTuesday",
     "QDate&",
     "firstStep",
@@ -79,7 +80,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10handleuserE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -87,22 +88,23 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10handleuserE[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    7,  110,    2, 0x02,    1 /* Public */,
-      10,    2,  125,    2, 0x02,    9 /* Public */,
-      12,    1,  130,    2, 0x02,   12 /* Public */,
-      13,    7,  133,    2, 0x02,   14 /* Public */,
-      14,    0,  148,    2, 0x02,   22 /* Public */,
-      15,    2,  149,    2, 0x02,   23 /* Public */,
-      18,    0,  154,    2, 0x02,   26 /* Public */,
-      19,    0,  155,    2, 0x02,   27 /* Public */,
-      20,    2,  156,    2, 0x02,   28 /* Public */,
-      22,    2,  161,    2, 0x02,   31 /* Public */,
-      23,    2,  166,    2, 0x02,   34 /* Public */,
-      24,    1,  171,    2, 0x02,   37 /* Public */,
-      25,    1,  174,    2, 0x02,   39 /* Public */,
-      26,    1,  177,    2, 0x02,   41 /* Public */,
-      29,    1,  180,    2, 0x02,   43 /* Public */,
-      30,    1,  183,    2, 0x02,   45 /* Public */,
+       1,    7,  116,    2, 0x02,    1 /* Public */,
+      10,    2,  131,    2, 0x02,    9 /* Public */,
+      12,    1,  136,    2, 0x02,   12 /* Public */,
+      13,    7,  139,    2, 0x02,   14 /* Public */,
+      14,    0,  154,    2, 0x02,   22 /* Public */,
+      15,    2,  155,    2, 0x02,   23 /* Public */,
+      18,    0,  160,    2, 0x02,   26 /* Public */,
+      19,    0,  161,    2, 0x02,   27 /* Public */,
+      20,    2,  162,    2, 0x02,   28 /* Public */,
+      22,    2,  167,    2, 0x02,   31 /* Public */,
+      23,    2,  172,    2, 0x02,   34 /* Public */,
+      24,    1,  177,    2, 0x02,   37 /* Public */,
+      25,    1,  180,    2, 0x02,   39 /* Public */,
+      26,    2,  183,    2, 0x02,   41 /* Public */,
+      27,    1,  188,    2, 0x02,   44 /* Public */,
+      30,    1,  191,    2, 0x02,   46 /* Public */,
+      31,    1,  194,    2, 0x02,   48 /* Public */,
 
  // methods: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::Int, QMetaType::Int,    3,    4,    5,    6,    7,    8,    9,
@@ -118,9 +120,10 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10handleuserE[] = {
     QMetaType::QString, QMetaType::QString, QMetaType::Int,   21,    8,
     QMetaType::QDate, QMetaType::QString,    7,
     QMetaType::Int, QMetaType::QDate,    7,
-    QMetaType::QDate, 0x80000000 | 27,   28,
-    QMetaType::QDate, 0x80000000 | 27,   28,
-    QMetaType::QDate, 0x80000000 | 27,   28,
+    QMetaType::Int, QMetaType::QString, QMetaType::QString,    3,    4,
+    QMetaType::QDate, 0x80000000 | 28,   29,
+    QMetaType::QDate, 0x80000000 | 28,   29,
+    QMetaType::QDate, 0x80000000 | 28,   29,
 
        0        // eod
 };
@@ -187,6 +190,10 @@ Q_CONSTINIT const QMetaObject handleuser::staticMetaObject = { {
         // method 'whichDay'
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<QDate, std::false_type>,
+        // method 'searchUser'
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'firstSundayOrTuesday'
         QtPrivate::TypeAndForceComplete<QDate, std::false_type>,
         QtPrivate::TypeAndForceComplete<QDate &, std::false_type>,
@@ -226,11 +233,13 @@ void handleuser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             if (_a[0]) *reinterpret_cast< QDate*>(_a[0]) = std::move(_r); }  break;
         case 12: { int _r = _t->whichDay((*reinterpret_cast< std::add_pointer_t<QDate>>(_a[1])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 13: { QDate _r = _t->firstSundayOrTuesday((*reinterpret_cast< std::add_pointer_t<QDate&>>(_a[1])));
+        case 13: { int _r = _t->searchUser((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
+        case 14: { QDate _r = _t->firstSundayOrTuesday((*reinterpret_cast< std::add_pointer_t<QDate&>>(_a[1])));
             if (_a[0]) *reinterpret_cast< QDate*>(_a[0]) = std::move(_r); }  break;
-        case 14: { QDate _r = _t->firstSundayOrThursday((*reinterpret_cast< std::add_pointer_t<QDate&>>(_a[1])));
+        case 15: { QDate _r = _t->firstSundayOrThursday((*reinterpret_cast< std::add_pointer_t<QDate&>>(_a[1])));
             if (_a[0]) *reinterpret_cast< QDate*>(_a[0]) = std::move(_r); }  break;
-        case 15: { QDate _r = _t->firstThursdayOrTuesday((*reinterpret_cast< std::add_pointer_t<QDate&>>(_a[1])));
+        case 16: { QDate _r = _t->firstThursdayOrTuesday((*reinterpret_cast< std::add_pointer_t<QDate&>>(_a[1])));
             if (_a[0]) *reinterpret_cast< QDate*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -256,14 +265,14 @@ int handleuser::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 17;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 17)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 16;
+        _id -= 17;
     }
     return _id;
 }

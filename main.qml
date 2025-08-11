@@ -296,13 +296,18 @@ Window{
                         }
                     }
 
+
                 }
+                Row{
+                spacing:7
+                anchors.horizontalCenter: parent.horizontalCenter
+                width:deletetext.width + searchtext.width + spacing
                 Text {
+                    id:deletetext
                     text: "Wanna delete user?"
                     color: "red"
                     font.bold: true
                     font.pixelSize: 17
-                    anchors.horizontalCenter: parent.horizontalCenter
                     MouseArea
                     {
                         anchors.fill: parent
@@ -314,21 +319,54 @@ Window{
                         onClicked:
                         {
                             var component =Qt.createComponent("deletepage.qml")
-                                                    if(component.status===Component.Ready)
-                                                    {
-                                                        var newWin = component.createObject(null ,{
-                                                        width =win.width,
-                                                        height =win.height,
-                                                        x:win.x,
-                                                        y:win.y,
-                                                        visibility:win.visibility
-                                                                                            })
-                                                        newWin.show();
-                                                    win.close();
+                            if(component.status===Component.Ready)
+                            {
+                            var newWin = component.createObject(null ,{
+                            width =win.width,
+                            height =win.height,
+                            x:win.x,
+                            y:win.y,
+                             visibility:win.visibility
+                            })
+                            newWin.show();
+                            win.close();
                                                 }
                         }
                     }
                 }
+                Text {
+                    id:searchtext
+                    text: "or search"
+                    color: "blue"
+                    font.bold: true
+                    font.pixelSize: 17
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onEntered:
+                        {
+                            cursorShape:Qt.PointingHandCursor
+                        }
+
+                        onClicked:
+                        {
+                            var component =Qt.createComponent("searchPage.qml")
+                            if(component.status===Component.Ready)
+                            {
+                            var newWin = component.createObject(null ,{
+                            width =win.width,
+                            height =win.height,
+                            x:win.x,
+                            y:win.y,
+                             visibility:win.visibility
+                            })
+                            newWin.show();
+                            win.close();
+                                                }
+                        }
+                    }
+                }
+            }
             }
             ScrollBar.vertical: ScrollBar
             {
