@@ -48,6 +48,7 @@ static constexpr auto qt_meta_stringdata_ZN10handleuserE = QtMocHelpers::stringD
     "sessions",
     "days",
     "deleteUser",
+    "firstaname",
     "deleteUserFromDb",
     "inserttodb",
     "showusers",
@@ -87,39 +88,39 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10handleuserE[] = {
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
        1,    7,  110,    2, 0x02,    1 /* Public */,
-      10,    1,  125,    2, 0x02,    9 /* Public */,
-      11,    1,  128,    2, 0x02,   11 /* Public */,
-      12,    7,  131,    2, 0x02,   13 /* Public */,
-      13,    0,  146,    2, 0x02,   21 /* Public */,
-      14,    2,  147,    2, 0x02,   22 /* Public */,
-      17,    0,  152,    2, 0x02,   25 /* Public */,
-      18,    0,  153,    2, 0x02,   26 /* Public */,
-      19,    2,  154,    2, 0x02,   27 /* Public */,
-      21,    2,  159,    2, 0x02,   30 /* Public */,
-      22,    2,  164,    2, 0x02,   33 /* Public */,
-      23,    1,  169,    2, 0x02,   36 /* Public */,
-      24,    1,  172,    2, 0x02,   38 /* Public */,
-      25,    1,  175,    2, 0x02,   40 /* Public */,
-      28,    1,  178,    2, 0x02,   42 /* Public */,
-      29,    1,  181,    2, 0x02,   44 /* Public */,
+      10,    2,  125,    2, 0x02,    9 /* Public */,
+      12,    1,  130,    2, 0x02,   12 /* Public */,
+      13,    7,  133,    2, 0x02,   14 /* Public */,
+      14,    0,  148,    2, 0x02,   22 /* Public */,
+      15,    2,  149,    2, 0x02,   23 /* Public */,
+      18,    0,  154,    2, 0x02,   26 /* Public */,
+      19,    0,  155,    2, 0x02,   27 /* Public */,
+      20,    2,  156,    2, 0x02,   28 /* Public */,
+      22,    2,  161,    2, 0x02,   31 /* Public */,
+      23,    2,  166,    2, 0x02,   34 /* Public */,
+      24,    1,  171,    2, 0x02,   37 /* Public */,
+      25,    1,  174,    2, 0x02,   39 /* Public */,
+      26,    1,  177,    2, 0x02,   41 /* Public */,
+      29,    1,  180,    2, 0x02,   43 /* Public */,
+      30,    1,  183,    2, 0x02,   45 /* Public */,
 
  // methods: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::Int, QMetaType::Int,    3,    4,    5,    6,    7,    8,    9,
-    QMetaType::Int, QMetaType::QString,    5,
+    QMetaType::Int, QMetaType::QString, QMetaType::QString,   11,    4,
     QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::Int, QMetaType::Int,    3,    4,    5,    6,    7,    8,    9,
     QMetaType::Void,
-    QMetaType::QString, QMetaType::Int, QMetaType::Int,   15,   16,
+    QMetaType::QString, QMetaType::Int, QMetaType::Int,   16,   17,
     QMetaType::Void,
     QMetaType::Int,
-    QMetaType::QString, QMetaType::QString, QMetaType::Int,   20,    8,
-    QMetaType::QString, QMetaType::QString, QMetaType::Int,   20,    8,
-    QMetaType::QString, QMetaType::QString, QMetaType::Int,   20,    8,
+    QMetaType::QString, QMetaType::QString, QMetaType::Int,   21,    8,
+    QMetaType::QString, QMetaType::QString, QMetaType::Int,   21,    8,
+    QMetaType::QString, QMetaType::QString, QMetaType::Int,   21,    8,
     QMetaType::QDate, QMetaType::QString,    7,
     QMetaType::Int, QMetaType::QDate,    7,
-    QMetaType::QDate, 0x80000000 | 26,   27,
-    QMetaType::QDate, 0x80000000 | 26,   27,
-    QMetaType::QDate, 0x80000000 | 26,   27,
+    QMetaType::QDate, 0x80000000 | 27,   28,
+    QMetaType::QDate, 0x80000000 | 27,   28,
+    QMetaType::QDate, 0x80000000 | 27,   28,
 
        0        // eod
 };
@@ -144,6 +145,7 @@ Q_CONSTINIT const QMetaObject handleuser::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'deleteUser'
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'deleteUserFromDb'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -204,7 +206,7 @@ void handleuser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->addUser((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[6])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[7]))); break;
-        case 1: { int _r = _t->deleteUser((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])));
+        case 1: { int _r = _t->deleteUser((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 2: _t->deleteUserFromDb((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 3: _t->inserttodb((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[6])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[7]))); break;

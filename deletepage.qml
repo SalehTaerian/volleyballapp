@@ -11,7 +11,7 @@ Window{
     height:screen.height
     minimumWidth: 320
     minimumHeight: 568
-    title:"main page"
+    title:"delete page"
     visible: true
     Rectangle
     {
@@ -60,33 +60,62 @@ Window{
                 }
                 TextField
                 {
-                    id:phonefield
-                    placeholderText: "phonenumber"
+                    id:firstname
+                    placeholderText: "firstname"
                     width: insiderect.width-30
                     font.pixelSize: 14
-                    property int validphonenum: 0
+                    property int validfirstname: 0
                     onTextChanged:
                     {
-                        if(phonefield.text.length!==11 || phonefield.text[0]!=='0' || phonefield.text[1]!=='9')
+                        if(firstname.length<3)
                         {
-                            phoneerror.visible = true
-                            phoneerror.text = "invalid phone number format"
-                            phonefield.validphonenum = 0
+                            errortext.visible = true
+                            errortext.text = "at least 3 character"
+                            firstname.validfirstname= 0
                         }
                         else
                         {
-                            phoneerror.visible = false
-                            phonefield.validphonenum = 1
+                            errortext.visible = false
+                            firstname.validfirstname= 1
                         }
                     }
                 }
                 Text {
-                    id: phoneerror
+                    id: errortext
                     color:"red"
                     visible: false
                     font.pixelSize: 12
                     anchors.margins: 2
                 }
+                TextField
+                {
+                    id:lastname
+                    placeholderText: "lastname"
+                    width: insiderect.width-30
+                    font.pixelSize: 14
+                    property int validlastname: 0
+                    onTextChanged:
+                    {
+                        if(lastname.length<3)
+                        {
+                            errortext2.visible = true
+                            errortext2.text = "at least 3 character"
+                            lastname.validlastname= 0
+                        }
+                        else
+                        {
+                            errortext2.visible = false
+                            lastname.validlastname= 1
+                        }
+                    }
+                }
+                Text {
+                    id: errortext2
+                    color:"red"
+                    visible: false
+                    font.pixelSize: 12
+                    anchors.margins: 2
+                    }
                 Dialog
                 {
                     id:okmessage
@@ -163,7 +192,7 @@ Window{
                         width: col.width/3
                         onClicked:
                         {
-                           var flag = HandleUser.deleteUser(phonefield.text)
+                           var flag = HandleUser.deleteUser(firstname.text , lastname.text)
                            if(flag)
                            {
                                okmessage.open()

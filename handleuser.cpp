@@ -89,16 +89,19 @@ void handleuser::addUser(QString firstname , QString lastname , QString phonenum
     user userobj(firstname , lastname , phonenumber , firstsession ,  date , sessions , days);
     users.push_back(userobj);
 }
-int handleuser::deleteUser(QString phonenumber)
+int handleuser::deleteUser(QString firstname , QString lastname)
 {
     int flag=0;
     for (auto it = users.begin();it!=users.end();)
     {
-        if(it->getphonenumber()==phonenumber)
+        if(it->getfirstname()==firstname)
         {
+            if(it->getlastname()==lastname)
+            {
             it = users.erase(it);
-            deleteUserFromDb(phonenumber);
+            deleteUserFromDb(it->getphonenumber());
             flag=1;
+            }
         }
         else
         {
@@ -107,22 +110,20 @@ int handleuser::deleteUser(QString phonenumber)
     }
     return flag;
 }
-void handleuser::deleteUserFromDb(QString phoneNumber)
+void handleuser::deleteUserFromDb(QString phonenumber)
 {
     QSqlDatabase db = QSqlDatabase::database("main_connection");
     if (!db.isOpen()) {
         qDebug() << "Database is not open!";
         return;
     }
-
     QSqlQuery query(db);
     query.prepare("DELETE FROM userdatabase WHERE phonenumber = :phonenumber");
-    query.bindValue(":phonenumber", phoneNumber);
-
+    query.bindValue(":phonenumber", phonenumber);
     if (!query.exec()) {
         qDebug() << "Delete error:" << query.lastError().text();
     } else {
-        qDebug() << "User with phone number" << phoneNumber << "deleted.";
+        qDebug() << "User with phone number" << phonenumber << "deleted.";
     }
 }
 // void handleuser::editUser(user userobj)
